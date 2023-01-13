@@ -1,6 +1,6 @@
 {
     "name": "_h_Maqueen",
-    "version": "0.1.3",
+    "version": "0.2.0",
     "description": "Syntax-Fehler in pxt.json",
     "dependencies": {
         "radio": "*",
