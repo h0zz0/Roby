@@ -34,7 +34,7 @@ radio.onReceivedValue(function (name, value) {
 })
 let Index = 0
 radio.setGroup(200)
-for (let Index = 0; Index <= 10; Index++) {
+for (let Index2 = 0; Index2 <= 10; Index2++) {
     music.playMelody("C D E F G F A C5 ", 1000)
 }
 DFRobotMaqueenPlusV2.showColor(NeoPixelColors.White)
