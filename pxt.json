@@ -1,0 +1,41 @@
+{
+    "name": "this",
+    "description": "Syntax-Fehler in pxt.json",
+    "dependencies": {
+        "radio": "*",
+        "microphone": "*",
+        "DFRobot_MaqueenPlus_V2.0": "github:DFRobot/pxt-DFRobot_MaqueenPlus_v20#v1.2.8"
+    },
+    "files": [
+        "tsconfig.json",
+        "test.ts",
+        "README.md",
+        ".vscode/settings.json",
+        "main.blocks",
+        "main.ts",
+        ".simstate.json",
+        ".git.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "5.0.12",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "whitelist": 0,
+                    "security_level": null
+                }
+            }
+        }
+    }
+}
