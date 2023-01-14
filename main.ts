@@ -33,9 +33,10 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 let Index = 0
+DFRobotMaqueenPlusV2.I2CInit()
 radio.setGroup(200)
 for (let Index2 = 0; Index2 <= 10; Index2++) {
-    music.playMelody("C D E F G F A C5 ", 1000)
+    music.playMelody("C D E F G F A C5 ", 2000)
 }
 DFRobotMaqueenPlusV2.showColor(NeoPixelColors.White)
 DFRobotMaqueenPlusV2.controlMotorStop(MyEnumMotor.eAllMotor)
@@ -43,7 +44,7 @@ basic.showIcon(IconNames.Yes)
 basic.forever(function () {
     let US = 0
     Index = DFRobotMaqueenPlusV2.readUltrasonic(DigitalPin.P13, DigitalPin.P14)
-    if (US < 10 && US != 0) {
+    if (US < 5 && US != 0) {
         DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eLeftMotor, MyEnumDir.eForward, 50)
         DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eRightMotor, MyEnumDir.eForward, 5)
     }
