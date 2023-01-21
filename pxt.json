@@ -16,13 +16,14 @@
         "main.ts",
         ".simstate.json",
         ".git.json",
-        "tutorial-info-cache.json"
+        "tutorial-info-cache.json",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "5.0.12",
+        "target": "5.1.2",
         "targetId": "microbit"
     },
     "supportedTargets": [
