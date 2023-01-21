@@ -41,6 +41,7 @@ for (let Index2 = 0; Index2 <= 10; Index2++) {
 DFRobotMaqueenPlusV2.showColor(NeoPixelColors.White)
 DFRobotMaqueenPlusV2.controlMotorStop(MyEnumMotor.eAllMotor)
 basic.showIcon(IconNames.Yes)
+basic.showNumber(input.temperature())
 basic.forever(function () {
     let US = 0
     Index = DFRobotMaqueenPlusV2.readUltrasonic(DigitalPin.P13, DigitalPin.P14)
@@ -48,4 +49,13 @@ basic.forever(function () {
         DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eLeftMotor, MyEnumDir.eForward, 50)
         DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eRightMotor, MyEnumDir.eForward, 5)
     }
+})
+control.inBackground(function () {
+    control.waitForEvent(12, 1)
+    DFRobotMaqueenPlusV2.controlLED(MyEnumLed.eLeftLed, MyEnumSwitch.eOpen)
+    DFRobotMaqueenPlusV2.controlLED(MyEnumLed.eRightLed, MyEnumSwitch.eClose)
+    basic.pause(500)
+    DFRobotMaqueenPlusV2.controlLED(MyEnumLed.eLeftLed, MyEnumSwitch.eClose)
+    DFRobotMaqueenPlusV2.controlLED(MyEnumLed.eRightLed, MyEnumSwitch.eOpen)
+    basic.pause(500)
 })
