@@ -5,7 +5,8 @@
     "dependencies": {
         "radio": "*",
         "microphone": "*",
-        "DFRobot_MaqueenPlus_V2.0": "github:DFRobot/pxt-DFRobot_MaqueenPlus_v20#v1.2.8"
+        "DFRobot_MaqueenPlus_V2.0": "github:DFRobot/pxt-DFRobot_MaqueenPlus_v20#v1.2.8",
+        "Huskylens": "github:dfrobot/pxt-dfrobot_huskylens#v2.0.5"
     },
     "files": [
         "tsconfig.json",
@@ -16,13 +17,14 @@
         "main.ts",
         ".simstate.json",
         ".git.json",
-        "tutorial-info-cache.json"
+        "tutorial-info-cache.json",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "5.0.12",
+        "target": "5.1.2",
         "targetId": "microbit"
     },
     "supportedTargets": [
