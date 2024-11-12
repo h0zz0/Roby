@@ -2,11 +2,18 @@ radio.onReceivedString(function (receivedString) {
     if (receivedString == "LEDL") {
         DFRobotMaqueenPlusV2.setIndexColor(0, NeoPixelColors.Orange)
     } else if (receivedString == "LEDR") {
-        DFRobotMaqueenPlusV2.setIndexColor(2, NeoPixelColors.Blue)
+        DFRobotMaqueenPlusV2.setIndexColor(3, NeoPixelColors.Blue)
     } else if (receivedString == "LEDALL") {
         DFRobotMaqueenPlusV2.ledRainbow(1, 360)
-    } else {
+    } else if (receivedString == "S") {
+        basic.showIcon(IconNames.No)
         DFRobotMaqueenPlusV2.controlMotorStop(MyEnumMotor.eAllMotor)
+        Blink = 0
+    } else if (receivedString == "LEDOFF") {
+        DFRobotMaqueenPlusV2.ledBlank()
+        DFRobotMaqueenPlusV2.controlLED(MyEnumLed.eAllLed, MyEnumSwitch.eClose)
+    } else {
+    	
     }
 })
 radio.onReceivedValue(function (name, value) {
@@ -26,16 +33,13 @@ radio.onReceivedValue(function (name, value) {
         DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eLeftMotor, MyEnumDir.eForward, Math.map(value, 600, 1023, 40, 255))
         DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eRightMotor, MyEnumDir.eForward, 10)
         basic.showArrow(ArrowNames.West)
-    } else if (name == "S") {
-        DFRobotMaqueenPlusV2.controlMotorStop(MyEnumMotor.eAllMotor)
-        DFRobotMaqueenPlusV2.showColor(NeoPixelColors.Indigo)
-    } else {
-        DFRobotMaqueenPlusV2.controlMotorStop(MyEnumMotor.eAllMotor)
-        basic.clearScreen()
     }
 })
 let Index = 0
 let Blink = 0
+let DEBUG = 0
+DEBUG += 1
+let hasUltrasonic = 0
 DFRobotMaqueenPlusV2.I2CInit()
 radio.setGroup(200)
 for (let Index2 = 0; Index2 <= 10; Index2++) {
@@ -51,11 +55,15 @@ for (let Index = 0; Index <= 2; Index++) {
     basic.showString("" + input.temperature() + " ˘C")
 }
 basic.forever(function () {
-    let US = 0
-    Index = DFRobotMaqueenPlusV2.readUltrasonic(DigitalPin.P13, DigitalPin.P14)
-    if (US < 5 && US != 0) {
-        DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eLeftMotor, MyEnumDir.eForward, 50)
-        DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eRightMotor, MyEnumDir.eForward, 5)
+    if (hasUltrasonic) {
+        let US = 0
+        Index = DFRobotMaqueenPlusV2.readUltrasonic(DigitalPin.P13, DigitalPin.P14)
+        if (US < 5 && US != 0) {
+            DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eLeftMotor, MyEnumDir.eForward, 50)
+            DFRobotMaqueenPlusV2.controlMotor(MyEnumMotor.eRightMotor, MyEnumDir.eForward, 5)
+        }
+    } else {
+        basic.pause(100)
     }
 })
 control.inBackground(function () {

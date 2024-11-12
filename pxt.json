@@ -5,7 +5,10 @@
     "dependencies": {
         "radio": "*",
         "microphone": "*",
-        "DFRobot_MaqueenPlus_V2.0": "github:DFRobot/pxt-DFRobot_MaqueenPlus_v20#v1.2.8"
+        "DFRobot_MaqueenPlus_V2.0": "github:DFRobot/pxt-DFRobot_MaqueenPlus_v20#v1.2.8",
+        "MaqueenPlus": "github:dfrobot/pxt-dfrobot-maqueenplus#v1.5.1",
+        "pxt-sonar": "github:microsoft/pxt-sonar#v0.0.6",
+        "MakerBit-Ultrasonic": "github:1010technologies/pxt-makerbit-ultrasonic#v1.0.8"
     },
     "files": [
         "tsconfig.json",
@@ -22,7 +25,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "5.1.2",
+        "target": "7.0.51",
         "targetId": "microbit"
     },
     "supportedTargets": [
